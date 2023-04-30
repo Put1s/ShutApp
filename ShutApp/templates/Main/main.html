@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+    <title>ShutApp</title>
+  </head>
+  <body>
+    <style type=""text/css">
+    h1 {
+        font-size: 8em;
+    }
+        .registerbtn {
+
+  background-color: #f9b100;
+  color: black;
+  padding: 16px 20px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 10px;
+  font-size: 1em;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+  opacity: 0.9;
+}
+a {
+  text-decoration:none;
+  color:black;
+}
+ </style>
+    <h1 align="center">ShutApp</h1>
+    <a href="{% url 'register' %}">
+      <button type="submit" class="registerbtn">Registration</button>
+    </a>
+    <p></p>
+    <a href="{% url 'login' %}">
+       <button type="submit" class="registerbtn">Login</button>
+    </a>
+  </body>
+  </html>

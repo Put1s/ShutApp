@@ -1,0 +1,48 @@
+{% extends "Messenger/base_generic.html" %}
+{% block title %}
+<title>{{username}}</title>
+{% endblock %}
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'Messenger/css/user_style.css' %}"/>
+{% endblock %}
+{% block content %}
+<div align="center" class="container">
+    <h1><b>{{username}}</b> profile</h1>
+    {% if first_name and last_name%}
+        <h3>{{first_name}} {{last_name}}</h3>
+    {% elif first_name %}
+        <h3>{{first_name}}</h3>
+    {% elif last_name %}
+        <h3>{{last_name}}</h3>
+    {% endif %}
+    {% if is_superuser %}
+        <h2><b><font color="#FF0000">CEO</font></b></h2>
+    {% elif is_staff %}
+        <h2><b><font color="#9013FE">Staff</font></b></h2>
+    {% endif %}
+    {% if is_active %}
+        <p><font color="#3BD800">Online</font></p>
+    {% else %}
+        <p><font color="#8D8D8D">Offline, last seen at {{last_login}}</font></p>
+    {% endif %}
+    <hr>
+    <button type="button" class="cancelbtn"><a href="{% url 'dm' username %}">Go to DM</a></button>
+    <hr>
+    {% if bio %}
+        <p>Bio: {{bio}}</p>
+        <hr>
+    {% endif %}
+    {% if birth_date %}
+        <p>Birth date: {{birth_date}}</p>
+        <hr>
+    {% endif %}
+    {% if date_joined %}
+        <p>Registration date: {{date_joined}}</p>
+        <hr>
+    {% endif %}
+</div>
+<div class="container signin">
+    <p>Здесь могла бы быть ваша реклама.</p>
+</div>
+{% endblock %}

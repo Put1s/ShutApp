@@ -1,0 +1,21 @@
+{% extends "Messenger/base_generic.html" %}
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'Messenger/css/user_style.css' %}"/>
+{% endblock %}
+{% block content %}
+<div align="center" class="container">
+    <table>
+        {% for user in users %}
+            <tr>
+                <td><h1 align="center"><b><a href="{% url 'messenger' %}{{user.username}}">{{user.username}}</a></b></h1></td>
+                <td></td>
+                <td><button type="button" class="cancelbtn" align="center"><a href="{% url 'dm' user.username %}">Go to DM</a></button></td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+<div class="container signin">
+    <p>Здесь могла бы быть ваша реклама.</p>
+</div>
+{% endblock %}

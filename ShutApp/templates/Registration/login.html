@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ShutApp</title>
+    <link rel="stylesheet" href="{% static 'Login/css/login_style.css' %}"/>
+</head>
+<body>
+
+<form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div class="container">
+        <h1>Login</h1>
+        <hr>
+        <table>
+            <label><b>Username</b></label>
+            <tr>
+                <td>{{ form.username }}</td>
+            </tr>
+        </table>
+        <table>
+            <label><b>Password</b></label>
+            <tr>
+                <td >{{ form.password }}</td>
+            </tr>
+        </table>
+
+        <button type="submit" value="/login">Login</button>
+        <input type="hidden" name="next" value="{{ next }}"/>
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn"><a href="{% url 'main' %}">Cancel</a></button>
+        <span class="psw">Forgot <a href="{% url 'password_reset' %}">password?</a></span>
+    </div>
+</form>
+</body>
+</html>

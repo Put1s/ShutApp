@@ -1,0 +1,21 @@
+{% extends "Messenger/base_generic.html" %}
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'Messenger/css/dm_style.css' %}"/>
+{% endblock %}
+{% block content %}
+<div align="center" class="container">
+    <h1><b>ShutApp</b></h1>
+    <hr>
+    <h2>Welcome to <b>ShutApp</b>. This is the place where you feel comfortable.</h2>
+    <hr>
+    <h3>{{users_number}} users are already registered in our social network.</h3>
+    <hr>
+    <p>Contacts:</p>
+    <p><b><a href="http://t.me/put1s">Tg</a></b> <b><a href="https://vk.com/megashakal">VK</a></b></p>
+</div>
+
+<div class="container signin">
+    <p>Здесь могла бы быть ваша реклама.</p>
+</div>
+{% endblock %}

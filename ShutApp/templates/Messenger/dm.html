@@ -1,0 +1,45 @@
+{% extends "Messenger/base_generic.html" %}
+{% csrf_token %}
+{% block title %}
+<title>DM with {{username}}</title>
+{% endblock %}
+{% block style %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'Messenger/css/dm_style.css' %}"/>
+{% endblock %}
+{% block content %}
+<div align="center" class="container">
+    <h1>DM with <a href="{% url 'messenger' %}{{username}}"><b>{{username}}</b></a></h1>
+<!--    {% if is_superuser %}-->
+<!--        <p><b><font color="#FF0000">CEO</font></b></p>-->
+<!--    {% elif is_stuff %}-->
+<!--        <p><b><font color="#9013FE">Stuff</font></b></p>-->
+<!--    {% endif %}-->
+<!--    {% if is_active %}-->
+<!--        <p><font color="#3BD800">Online</font></p>-->
+<!--    {% else %}-->
+<!--        <p><font color="#8D8D8D">Offline, last seen at {{last_login}}</font></p>-->
+<!--    {% endif %}-->
+    <hr>
+</div>
+<table>
+    {% for message in messages %}
+        <tr>
+            <td>{{message.SendDateTime}}</td>
+<!--            <td>|</td>-->
+            <td><b>{{message.Sender.username}}</b>:</td>
+            <td>{{message.Text}}</td>
+<!--            {{message.SendDateTime}} | {{message.Sender.username}}: {{message.Text}}-->
+        </tr>
+    {% endfor %}
+</table>
+<form method="POST" align="center">
+    <input type="text" placeholder="Type your message here" name="typed_message" required>
+    <td><button type="submit">Send</button>
+    <p></p>
+</form>
+
+<div class="container signin">
+    <p>Здесь могла бы быть ваша реклама.</p>
+</div>
+{% endblock %}

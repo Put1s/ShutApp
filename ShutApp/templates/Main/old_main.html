@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+    <title>ShutApp</title>
+  </head>
+  <body>
+    <style type=""text/css">    
+        body {
+            margin: 0;
+            background-color: #CDCAC5;
+            
+            color:#012E4A;
+        }
+
+        .container {
+
+            width: 100vw;
+            height: 100vh;
+
+            font-family: 'Mona-Sans', sans-serif;
+            font-weight: bold;
+            font-size: 20px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr 1fr ;
+            grid-template-rows: 50px 1fr 1fr 100px;
+
+            gap: 10px;
+
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .container div{
+            padding: 10px;
+            border: 1px solid rgb(255, 255, 255);
+            border-radius: 25px;
+        }
+
+        .header {
+            grid-column-start: 1;
+            grid-column-end: 1;
+        }
+        .reg {
+            grid-column-start: 2;
+            grid-column-end: 2;
+        }
+        .signin {
+            grid-column-start: 3;
+            grid-column-end: 3;
+        }
+
+        .content-large-a{
+            grid-column-start: 1;
+            grid-column-end: 4;
+        }
+
+        .content-large-b{
+            grid-row-start: 2 ;
+            grid-row-end: span 2;
+        }
+
+
+    </style>
+    <div class="container">
+        <div class="header"><strong>ShutApp</strong></div>
+
+        <div class="reg"><a href="проект2.html" style="color:#012E4A">Зарегистрироваться</a></div>
+        <div class="signin"><a href="проект1.html" style="color:#012E4A">Войти</a></div>
+        <div class="content-large-b">
+            <img src="../../Main/static/Main/img/photo.jpg" height="625" width="480">
+        </div>
+        <div class="content-large-b">
+            <p><strong>ShutApp</strong> — новый революционный проект. Бесплатный мессенджер, где вы будете
+                чувствовать себя в безопасности и комфорте.</p>
+        </div>
+        <div class="content-large-b">Content #3
+            <p>Здесь тоже что-то надо написать</p>
+            <img src="../../Main/static/Main/img/1.jpg" height="425" width="480">
+        </div>
+        <div class="content-large-a"><p align="center">Здесь могла быть ваша реклама</p></div>
+        
+    </div>
+  </body>
+
+</html>

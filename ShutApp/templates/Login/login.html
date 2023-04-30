@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ShutApp</title>
+    <link rel="stylesheet" href="{% static 'Login/css/login_style.css' %}"/>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <div class="container">
+        <h1>Login</h1>
+        <hr>
+        {% if messages %}
+            {% for message in messages %}
+              <p>{{message}}</p>
+            {% endfor %}
+            <hr>
+        {% endif %}
+        <label for="username"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+
+        <button type="submit">Login</button>
+        <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn"><a href="{% url 'main' %}">Cancel</a></button>
+        <span class="psw"><a href="{% url 'password_reset' %}">Forgot your password?</a></span>
+    </div>
+</form>
+</body>
+</html>
